@@ -44,7 +44,7 @@
 		<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
       <header class="demo-drawer-header">
         <div class="demo-avatar-dropdown">
-            <h1>SISTIK </h1>
+            <h1>SISTIK</h1>
           </div>
 			</header>
 			<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">

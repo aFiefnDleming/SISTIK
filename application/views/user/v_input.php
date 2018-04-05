@@ -452,13 +452,7 @@
 				<div class="mdl-mini-footer--left-section">
 					<ul class="mdl-mini-footer--link-list">
 						<li>
-							<a href="#">Help</a>
-						</li>
-						<li>
-							<a href="#">Privacy and Terms</a>
-						</li>
-						<li>
-							<a href="#">User Agreement</a>
+							2018 &copy; Sera5
 						</li>
 					</ul>
 				</div>
