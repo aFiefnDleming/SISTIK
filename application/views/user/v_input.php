@@ -77,6 +77,17 @@
 		<header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
 			<div class="mdl-layout__header-row">
 				<span class="mdl-layout-title">SURVEY TINGKAT KEPUASAN KECAMATAN CINAMBO</span>
+				<div class="mdl-layout-spacer"></div>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+					<a class="" href="<?php echo base_url();?>index.php/c_login">
+					<label class="mdl-button mdl-js-button mdl-button--icon">
+						<i class="material-icons">input</i>
+					</label></a>
+					<div class="mdl-textfield__expandable-holder">
+						<input class="mdl-textfield__input" type="text" id="search">
+						<label class="mdl-textfield__label" for="search">Enter your query...</label>
+					</div>
+				</div>
 			</div>
 		</header>
 		<div class="demo-ribbon"></div>
@@ -86,7 +97,7 @@
 				<div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
 					<h3>Form Pengisian Survey</h3>
 					<br>
-					<form action="<?php echo base_url();?>index.php/c_crud/tambah_data" method="post">
+					<form action="<?php echo base_url();?>index.php/c_crud/input_user" method="post">
 						<h4>Nomor Responden</h4>
 						<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
 							<input class="mdl-textfield__input" name="nomor" id="nomor" type="text" pattern="-?[0-9]*(\.[0-9]+)?">

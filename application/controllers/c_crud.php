@@ -8,13 +8,22 @@ class c_crud extends CI_Controller {
   	}
 
 	public function index(){
-		if($this->session->userdata('ses_username')){
+		if($this->session->userdata('ses_username')!== null){
 			$this->load->view('templates/header');
 			$this->load->view('admin/v_input');
 			$this->load->view('templates/footer');
 		}else{
 			$url = base_url('index.php/c_login/');
 			redirect($url);
+		}
+	}
+
+	public function input_user(){
+		if(null!==($this->session->userdata('ses_username'))){
+			$url = base_url('index.php/c_crud');
+			redirect($url);
+		}else{
+			$this->load->view('user/v_input');
 		}
 	}
 
@@ -58,7 +67,7 @@ class c_crud extends CI_Controller {
 		);
 
 		$this->db->insert('survey', $data);
-		$url = base_url('index.php/c_crud/');
+		$url = base_url('index.php/c_crud/input_user');
 		redirect($url);
 	}
 

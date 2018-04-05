@@ -8,6 +8,12 @@ class c_index extends CI_Controller {
     }
 
     public function index(){
-        $this->load->view('user/v_input');
+        if(null!==($this->session->userdata('ses_username'))){
+            $this->load->view('templates/header');
+			$this->load->view('admin/v_input');
+			$this->load->view('templates/footer');
+        }else{
+            $this->load->view('user/v_input');
+        }
     }
 }
