@@ -80,9 +80,10 @@
 				<div class="mdl-layout-spacer"></div>
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 					<a class="" href="<?php echo base_url();?>index.php/c_login">
-					<label class="mdl-button mdl-js-button mdl-button--icon">
-						<i class="material-icons">input</i>
-					</label></a>
+						<label class="mdl-button mdl-js-button mdl-button--icon">
+							<i class="material-icons">input</i>
+						</label>
+					</a>
 					<div class="mdl-textfield__expandable-holder">
 						<input class="mdl-textfield__input" type="text" id="search">
 						<label class="mdl-textfield__label" for="search">Enter your query...</label>
@@ -97,19 +98,17 @@
 				<div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
 					<h3>Form Pengisian Survey</h3>
 					<br>
-					<form action="<?php echo base_url();?>index.php/c_crud/input_user" method="post">
+					<form action="<?php echo base_url();?>index.php/c_crud/tambah_data" method="post">
 						<h4>Nomor Responden</h4>
 						<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-							<input class="mdl-textfield__input" name="nomor" id="nomor" type="text" pattern="-?[0-9]*(\.[0-9]+)?">
+							<input class="mdl-textfield__input" name="nomor" id="nomor" type="text" pattern="-?[0-9]*(\.[0-9]+)?" required>
 							<label class="mdl-textfield__label" for="nomor">Masukan No Responden</label>
-							<span class="mdl-textfield__error">Masukan nomor yang benar</span>
 						</div>
 
 						<h4>Umur</h4>
 						<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-							<input class="mdl-textfield__input" name="umur" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="umur" maxlength="3">
+							<input class="mdl-textfield__input" name="umur" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="umur" maxlength="3" required>
 							<label class="mdl-textfield__label" for="umur">Masukan Umur</label>
-							<span class="mdl-textfield__error">Masukan umur yang benar</span>
 						</div>
 						<h4>Jenis Kelamin</h4>
 						<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
@@ -199,7 +198,7 @@
 
 						<h4>Jenis Pelayanan</h4>
 						<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-							<input class="mdl-textfield__input" name="jenis" id="jenis" type="text">
+							<input class="mdl-textfield__input" name="jenis" id="jenis" type="text" required>
 							<label class="mdl-textfield__label" for="jenis">Masukan Jenis Pelayanan</label>
 						</div>
 

@@ -113,8 +113,8 @@ class c_crud extends CI_Controller {
 	public function export_data(){
 		$this->load->dbutil();
 		$query = $this->db->query("SELECT no_responden,umur,jenis_kelamin,pendidikan_terakhir,pekerjaan_utama,tanggal,jenis_pelayanan,sesuai,mudah,cepat,wajar,sesuai2,kompetensi,sopan,kualitas,pengaduan FROM survey");
-		header("Content-type: application/xls");
-		header("Content-Disposition: attachment; filename='Data.xls'");
+		header("Content-type: application/csv");
+		header("Content-Disposition: attachment; filename='Data.csv'");
 		header("Pragma: no-cache");
 		header("Expires: 0");
 		echo $this->dbutil->csv_from_result($query);

@@ -4,16 +4,14 @@
 			<form action="<?php echo base_url();?>index.php/c_crud/tambah_data" method="post">
 				<h4>Nomor Responden</h4>
 				<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-					<input class="mdl-textfield__input" name="nomor" id="nomor" type="text" pattern="-?[0-9]*(\.[0-9]+)?">
+					<input class="mdl-textfield__input" name="nomor" id="nomor" type="text" pattern="-?[0-9]*(\.[0-9]+)?" required>
 					<label class="mdl-textfield__label" for="nomor">Masukan No Responden</label>
-					<span class="mdl-textfield__error">Masukan nomor yang benar</span>
 				</div>
 
 				<h4>Umur</h4>
 				<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-					<input class="mdl-textfield__input" name="umur" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="umur" maxlength="3">
+					<input class="mdl-textfield__input" name="umur" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="umur" maxlength="3" required>
 					<label class="mdl-textfield__label" for="umur">Masukan Umur</label>
-					<span class="mdl-textfield__error">Masukan umur yang benar</span>
 				</div>
 				<h4>Jenis Kelamin</h4>
 				<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
@@ -99,11 +97,11 @@
 					</label>
 				</div>
 
-				<input type="hidden" name="tanggal" value="<?php echo date("Y-m-d");?>">
+				<input type="hidden" name="tanggal" value="<?php echo date(" Y-m-d ");?>">
 
 				<h4>Jenis Pelayanan</h4>
 				<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-					<input class="mdl-textfield__input" name="jenis" id="jenis" type="text">
+					<input class="mdl-textfield__input" name="jenis" id="jenis" type="text" required>
 					<label class="mdl-textfield__label" for="jenis">Masukan Jenis Pelayanan</label>
 				</div>
 
@@ -344,8 +342,10 @@
 				</div>
 
 				<br>
-				<br> <br>
-				<input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type="submit" name="submit" value="Save">
+				<br>
+				<br>
+				<input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type="submit" name="submit"
+				value="Save">
 				<input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="reset" name="reset" value="RESET">
 			</form>
 		</div>

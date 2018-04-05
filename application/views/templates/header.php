@@ -42,10 +42,10 @@
 			</div>
 		</header>
 		<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
-      <header class="demo-drawer-header">
-        <div class="demo-avatar-dropdown">
-            <h1>SISTIK</h1>
-          </div>
+			<header class="demo-drawer-header">
+				<div class="demo-avatar-dropdown">
+					<h1>SISTIK</h1>
+				</div>
 			</header>
 			<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
 				<a class="mdl-navigation__link" href="<?php echo base_url();?>index.php/c_crud/lihat_data">
@@ -57,7 +57,9 @@
 				<a class="mdl-navigation__link" href="<?php echo base_url();?>index.php/c_login/logout">
 					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>Sign Out</a>
 				<div class="mdl-layout-spacer"></div>
+				<p class="mdl-navigation__link">
+					2018 &copy; Sera5
+
+				</p>
 			</nav>
 		</div>
-
-	
