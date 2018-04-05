@@ -59,7 +59,6 @@
 				<div class="mdl-layout-spacer"></div>
 				<p class="mdl-navigation__link">
 					2018 &copy; Sera5
-
 				</p>
 			</nav>
 		</div>

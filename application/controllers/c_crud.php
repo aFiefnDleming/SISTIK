@@ -10,11 +10,14 @@ class c_crud extends CI_Controller {
 	public function index(){
 		if($this->session->userdata('ses_username')!== null){
 			$this->load->view('templates/header');
-			$this->load->view('admin/v_input');
+			$this->load->view('templates/input_atas');
+			$this->load->view('v_input');
+			$this->load->view('templates/input_bawah');
 			$this->load->view('templates/footer');
 		}else{
-			$url = base_url('index.php/c_login/');
-			redirect($url);
+			$this->load->view('templates/header_user');
+			$this->load->view('v_input');
+			$this->load->view('templates/footer_user');
 		}
 	}
 
@@ -23,13 +26,13 @@ class c_crud extends CI_Controller {
 			$url = base_url('index.php/c_crud');
 			redirect($url);
 		}else{
-			$this->load->view('user/v_input');
+			$this->load->view('templates/header_user');
+			$this->load->view('v_input');
+			$this->load->view('templates/footer_user');
 		}
 	}
 
 	public function tambah_data(){
-
-		$nomor 			= $_POST['nomor'];
 		$umur			= $_POST['umur'];
 		$jk 			= $_POST['jk'];
 		$pt 			= $_POST['pt'];
@@ -47,7 +50,6 @@ class c_crud extends CI_Controller {
 		$pengaduan 		= $_POST['pengaduan'];
 
 		$data = array(
-			'no_responden' 			=> $nomor,
 			'umur'					=> $umur,
 			'jenis_kelamin'			=> $jk,
 			'pendidikan_terakhir'	=> $pt,
@@ -83,8 +85,9 @@ class c_crud extends CI_Controller {
 			$this->load->view('templates/footer');
 		}
 		else{
-			$url = base_url('index.php/c_login/');
-			redirect($url);
+			$this->load->view('templates/header_user');
+			$this->load->view('v_input');
+			$this->load->view('templates/footer_user');
 		}
 	}
 
@@ -104,8 +107,8 @@ class c_crud extends CI_Controller {
 		$id = $this->uri->segment(3);
 		
 		$this->load->model('m_crud');
-		$this->crud->delete_where($id);
-		$data = $this->crud->select();
+		$this->m_crud->delete_where($id);
+		$data = $this->m_crud->select();
 
 		redirect(base_url().'index.php/c_crud/lihat_data');
 	}

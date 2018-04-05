@@ -8,12 +8,16 @@ class c_index extends CI_Controller {
     }
 
     public function index(){
-        if(null!==($this->session->userdata('ses_username'))){
-            $this->load->view('templates/header');
-			$this->load->view('admin/v_input');
+        if($this->session->userdata('ses_username')!== null){
+			$this->load->view('templates/header');
+			$this->load->view('templates/input_atas');
+			$this->load->view('v_input');
+			$this->load->view('templates/input_bawah');
 			$this->load->view('templates/footer');
-        }else{
-            $this->load->view('user/v_input');
-        }
+		}else{
+			$this->load->view('templates/header_user');
+			$this->load->view('v_input');
+			$this->load->view('templates/footer_user');
+		}
     }
 }

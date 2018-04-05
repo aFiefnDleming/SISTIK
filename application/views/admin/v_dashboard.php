@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css">
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="<?php echo base_url();?>assets/css/dataTables.material.min.css">
 <main class="mdl-layout__content mdl-color--grey-100">
 	<div class="mdl-grid demo-content">
 		<div class="mdl-card mdl-shadow--2dp mdl-color--blue-grey-600 mdl-color-text--white mdl-cell mdl-cell--3-col">
@@ -123,8 +122,9 @@
 					</tr>
 					<tr>
 						<th width="10%" style="text-align:center;">NO</th>
-						<th width="30%" class="mdl-data-table__cell--non-numeric">No. Responden</th>
 						<th width="15%" class="mdl-data-table__cell--non-numeric">Umur</th>
+						<th width="15%" class="mdl-data-table__cell--non-numeric">Pendidikan Terakhir</th>
+						<th width="15%" class="mdl-data-table__cell--non-numeric">Pekerjaan Utama</th>
 						<th width="15%" class="mdl-data-table__cell--non-numeric">Jenis Kelamin</th>
 						<th width="10%" class="mdl-data-table__cell--non-numeric">Aksi</th>
 					</tr>
@@ -137,19 +137,22 @@
 							<?php echo $i++?>
 						</td>
 						<td class="mdl-data-table__cell--non-numeric">
-							<?php echo $data['no_responden']?>
+							<?php echo $data['umur']?> tahun
 						</td>
 						<td class="mdl-data-table__cell--non-numeric">
-							<?php echo $data['umur']?> tahun
+							<?php echo $data['pendidikan_terakhir']?>
+						</td>
+						<td class="mdl-data-table__cell--non-numeric">
+							<?php echo $data['pekerjaan_utama']?>
 						</td>
 						<td class="mdl-data-table__cell--non-numeric">
 							<?php echo $data['jenis_kelamin']?>
 						</td>
 						<td class="mdl-data-table__cell--non-numeric">
-							<a class="mdl-color-text--blue-grey-500" href="<?php echo base_url().'index.php/c_crud/detail_data/'.$data['id']?>">
+							<a class="mdl-color-text--blue-grey-500" href="<?php echo base_url().'index.php/c_crud/detail_data/'.$data['no_responden']?>">
 								<i class="material-icons">launch</i>
 							</a>
-							<a class="mdl-color-text--blue-grey-500" href="<?php echo base_url().'index.php/c_crud/delete_data/'.$data['id']?>">
+							<a class="mdl-color-text--blue-grey-500" href="<?php echo base_url().'index.php/c_crud/delete_data/'.$data['no_responden']?>">
 								<i class="material-icons">delete</i>
 							</a>
 						</td>
@@ -162,9 +165,9 @@
 
 </main>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/dataTables.material.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('#lihat').DataTable();

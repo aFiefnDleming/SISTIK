@@ -16,40 +16,22 @@
 		<div class="demo-card-wide mdl-card mdl-shadow--2dp mdl-cell mdl-cell--3-col">
 			<div class="mdl-card__title mdl-color--blue-grey-900 ">
 				<h2 class="mdl-card__title-text">
-					<?php echo $data['no_responden']; ?>
+					Profil Responden
 				</h2>
 			</div>
 			<div class="mdl-card__supporting-text">
-				<table>
-					<tr>
-						<td>Jenis Kelamin</td>
-						<td>:</td>
-						<td>
-							<?php echo $data['jenis_kelamin'];?>
-						</td>
-					</tr>
-					<tr>
-						<td>Usia</td>
-						<td>:</td>
-						<td>
-							<?php echo $data['umur'];?>
-						</td>
-					</tr>
-					<tr>
-						<td>Pendidikan</td>
-						<td>:</td>
-						<td>
-							<?php echo $data['pendidikan_terakhir'];?>
-						</td>
-					</tr>
-					<tr>
-						<td>Pekerjaan</td>
-						<td>:</td>
-						<td>
-							<?php echo $data['pekerjaan_utama'];?>
-						</td>
-					</tr>
-				</table>
+				<div class="mdl-cell mdl-cell--12-col">
+					Jenis Kelamin : <?php echo $data['jenis_kelamin'];?>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					Usia : <?php echo $data['umur'];?>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					Pendidikan : <?php echo $data['pendidikan_terakhir'];?>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					Pekerjaan : <?php echo $data['pekerjaan_utama'];?>
+				</div>
 			</div>
 		</div>
 		<div class="mdl-card mdl-shadow--2dp mdl-color--blue-grey-600 mdl-color-text--white mdl-cell mdl-cell--3-col">
