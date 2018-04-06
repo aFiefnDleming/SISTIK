@@ -15,7 +15,7 @@ class c_crud extends CI_Controller {
 			$this->load->view('templates/input_bawah');
 			$this->load->view('templates/footer');
 		}else{
-            redirect(base_url());
+            redirect(base_url()."c_login");
 		}
 	}
 
