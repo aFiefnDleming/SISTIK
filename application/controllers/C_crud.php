@@ -15,9 +15,7 @@ class c_crud extends CI_Controller {
 			$this->load->view('templates/input_bawah');
 			$this->load->view('templates/footer');
 		}else{
-			$this->load->view('templates/header_user');
-			$this->load->view('v_input');
-			$this->load->view('templates/footer_user');
+            redirect(base_url());
 		}
 	}
 
