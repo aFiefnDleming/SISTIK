@@ -16,7 +16,7 @@ class c_login extends CI_Controller {
 			$this->load->view('index');
 		}
 	}
-	
+
 	public function auth(){
 		$username	= htmlspecialchars($this->input->post('username',TRUE),ENT_QUOTES);
 		$password	= htmlspecialchars($this->input->post('password',TRUE),ENT_QUOTES);
@@ -42,7 +42,7 @@ class c_login extends CI_Controller {
 		$password	= htmlspecialchars($this->input->post('password',TRUE),ENT_QUOTES);
 		$level		= $_POST['level'];
 		$password	= md5($password);
-		
+
 		$data = array(
 			'username'	=> 	$username,
 			'password'	=>	$password,
