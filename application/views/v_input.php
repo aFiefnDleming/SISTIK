@@ -96,8 +96,6 @@
 		<input class="mdl-date-textfield__input" type="date" name="tanggal" id="tanggal" required>
 	</div>
 
-	<input type="hidden" name="tanggal" value="<?php echo date(" Y-m-d ");?>">
-
 	<h4>Jenis Pelayanan</h4>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
 		<input class="mdl-textfield__input" name="jenis" id="jenis" type="text" required>
