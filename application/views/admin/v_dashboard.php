@@ -30,26 +30,35 @@
 				</div>
 			</div>
 		</div>
-		<div class="mdl-card mdl-shadow--2dp mdl-color--blue-grey-600 mdl-color-text--white mdl-cell mdl-cell--3-col">
+		<div class="mdl-cell mdl-cell--3-col">
 			<div class="mdl-grid demo-content">
 				<div style="text-align:center;">
 					<table>
+                        <?php
+
+                        ?>
 						<tr>
-							<td><br></td>
-						</tr>
-						<tr>
-							<td><h5>INDEKS NILAI</h5></td>
-						</tr>
-						<tr>
-							<td><h1><?php 
-										if($data2 != 0){
-											foreach($nilai as $nilais){
-												$nil=round($nilais['jumlahdata']/(9*$data2),2); 
-												echo $nil;  
-											}
-										}
-                                    ?>
-                                </h1></td>
+							<td>
+                                                        <div class="flex-wrapper">
+                              <div class="single-chart">
+                                <svg viewbox="0 0 36 36" class="circular-chart grayblue">
+                                  <path class="circle-bg"
+                                    d="M18 2.0845
+                                      a 15.9155 15.9155 0 0 1 0 31.831
+                                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                                  />
+                                  <path class="circle"
+                                    stroke-dasharray="<?= $final_nil ?>, 100"
+                                    d="M18 2.0845
+                                      a 15.9155 15.9155 0 0 1 0 31.831
+                                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                                  />
+                                  <text x="18" y="19" class="percentage"><?= $nil ?></text>
+                                  <text x="18" y="23" class="percentage_label">Tingkat Kepuasan</text>
+                                </svg>
+                              </div>
+                                </div>
+                            </td>
 						</tr>
 					</table>
 				</div>
@@ -66,27 +75,7 @@
 							<td><h5>INDEKS NILAI</h5></td>
 						</tr>
 						<tr>
-							<td><h1><?php
-								if($data2 != 0){
-									if($nil > 1.00 && $nil <= 2.5996){
-										$mutu = "D";
-										$kinerja = "Tidak Baik";
-									}
-									else if($nil > 2.6 && $nil <= 3.064){
-										$mutu = "C";
-										$kinerja = "Kurang Baik";
-									}
-									else if($nil > 3.0644 && $nil <= 3.532){
-										$mutu = "B";
-										$kinerja = "Baik";
-									}
-									else if($nil > 3.5324 && $nil <= 4.00){
-										$mutu = "A";
-										$kinerja = "Sangat Baik";
-									}
-									echo $mutu;
-								}
-                            ?></h1></td>
+							<td><h1><?= $mutu ?></h1></td>
 						</tr>
 					</table>
 				</div>

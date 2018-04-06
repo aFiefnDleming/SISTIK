@@ -77,12 +77,38 @@ class c_crud extends CI_Controller {
 			$data	= $this->m_crud->select();
 			$data2	= $this->db->count_all('survey');
 			$nilai	= $this->m_crud->jumlahdata();
+            $nil    = 0;
 
-			$this->load->view('templates/header');
-			$this->load->view('admin/v_dashboard',array('data' => $data, 'data2' => $data2, 'nilai' => $nilai));
-			$this->load->view('templates/footer');
-		}
-		else{
+            if($data2 != 0){
+                foreach($nilai as $nilais){
+                    $nil=round($nilais['jumlahdata']/(9*$data2),2);
+                }
+
+                if($nil > 1.00 && $nil <= 2.5996){
+                    $mutu = "D";
+                    $kinerja = "Tidak Baik";
+                }
+                else if($nil > 2.6 && $nil <= 3.064){
+                    $mutu = "C";
+                    $kinerja = "Kurang Baik";
+                }
+                else if($nil > 3.0644 && $nil <= 3.532){
+                    $mutu = "B";
+                    $kinerja = "Baik";
+                }
+                else if($nil > 3.5324 && $nil <= 4.00){
+                    $mutu = "A";
+                    $kinerja = "Sangat Baik";
+                }
+            }
+
+            $final_nil = ($nil/4)*100;
+
+
+            $values = array('data' => $data, 'data2' => $data2, 'nilai' => $nilai, 'view' => 'admin/v_dashboard', 'nil' => $nil, 'final_nil' => $final_nil, 'mutu' => $mutu, 'kinerja' => $kinerja);
+
+            $this->load->view('admin/v_index',$values);
+		} else{
 			$this->load->view('templates/header_user');
 			$this->load->view('v_input');
 			$this->load->view('templates/footer_user');
@@ -96,9 +122,8 @@ class c_crud extends CI_Controller {
 		$data = $this->m_crud->select_where($id);
 		$nilai = $this->m_crud->jumlahdata_where($id);
 
-		$this->load->view('templates/header');
-		$this->load->view('admin/v_detail',array('data' => $data, 'nilai' => $nilai));
-		$this->load->view('templates/footer');
+        $values = array('data' => $data, 'nilai' => $nilai, 'view' => 'admin/v_detail');
+        $this->load->view('admin/v_index',$values);
 	}
 
 	public function delete_data(){
