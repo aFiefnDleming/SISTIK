@@ -90,6 +90,11 @@
 			<span for="lainnya">Lainnya</span>
 		</label>
 	</div>
+	
+	<h4>Tanggal</h4>
+	<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
+		<input class="mdl-date-textfield__input" type="date" name="tanggal" id="tanggal" required>
+	</div>
 
 	<input type="hidden" name="tanggal" value="<?php echo date(" Y-m-d ");?>">
 
