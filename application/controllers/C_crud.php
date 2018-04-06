@@ -79,7 +79,7 @@ class c_crud extends CI_Controller {
 			$data	= $this->m_crud->select();
 			$data2	= $this->db->count_all('survey');
 			$nilai	= $this->m_crud->jumlahdata();
-			
+
 			$this->load->view('templates/header');
 			$this->load->view('admin/v_dashboard',array('data' => $data, 'data2' => $data2, 'nilai' => $nilai));
 			$this->load->view('templates/footer');
@@ -93,7 +93,7 @@ class c_crud extends CI_Controller {
 
 	public function detail_data(){
 		$id = $this->uri->segment(3);
-		
+
 		$this->load->model('m_crud');
 		$data = $this->m_crud->select_where($id);
 		$nilai = $this->m_crud->jumlahdata_where($id);
@@ -105,7 +105,7 @@ class c_crud extends CI_Controller {
 
 	public function delete_data(){
 		$id = $this->uri->segment(3);
-		
+
 		$this->load->model('m_crud');
 		$this->m_crud->delete_where($id);
 		$data = $this->m_crud->select();
