@@ -58,7 +58,7 @@
 				<a class="mdl-navigation__link" href="<?php echo base_url();?>index.php/c_crud/export_data">
 					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">cloud_download</i>Export Data</a>
 				<a class="mdl-navigation__link" href="<?php echo base_url();?>index.php/c_login/logout">
-					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>Sign Out (<?= $ses_uname ?>)</a>
+					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>Sign Out (<?= @$ses_uname ?>)</a>
 				<div class="mdl-layout-spacer"></div>
 				<p class="mdl-navigation__link">
 					2018 &copy; Sera5
