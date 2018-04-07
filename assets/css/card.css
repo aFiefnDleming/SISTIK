@@ -1,0 +1,21 @@
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background: #46B6AC;
+}
+
+.demo-card-square > .mdl-card__title.no-bg {
+  color: #fff;
+  background: transparent;
+}
+
+.demo-card-square > .mdl-card__title > .mdl-card__title-text {
+     font-size: 8em !important;
+         margin: auto !important;
+}
+
+.demo-card-square > .mdl-card__supporting-text.mutu_text {
+    text-align: center;
+    font-size:1.5em;
+    color:white;
+    background: rgba(255,255,255,0.25)
+}

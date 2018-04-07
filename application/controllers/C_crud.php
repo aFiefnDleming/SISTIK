@@ -88,26 +88,31 @@ class c_crud extends CI_Controller {
                 if($nil > 1.00 && $nil <= 2.5996){
                     $mutu = "D";
                     $kinerja = "Tidak Baik";
+                    $card_color = "#E65100";
                 }
                 else if($nil > 2.6 && $nil <= 3.064){
                     $mutu = "C";
                     $kinerja = "Kurang Baik";
+                    $card_color = "#FF9800";
                 }
                 else if($nil > 3.0644 && $nil <= 3.532){
                     $mutu = "B";
                     $kinerja = "Baik";
+                    $card_color = "#4CAF50";
                 }
                 else if($nil > 3.5324 && $nil <= 4.00){
                     $mutu = "A";
                     $kinerja = "Sangat Baik";
+                    $card_color = "#2E7D32";
                 }
             }
 
             $final_nil = ($nil/4)*100;
 
             $color = $this->M_UI->percentColor($final_nil);
+            $mutu_color = "background:{$card_color} !important";
 
-            $values = array('data' => $data, 'data2' => $data2, 'nilai' => $nilai, 'view' => 'admin/v_dashboard', 'nil' => $nil, 'final_nil' => $final_nil, 'mutu' => $mutu, 'kinerja' => $kinerja, 'color' => $color);
+            $values = array('data' => $data, 'data2' => $data2, 'nilai' => $nilai, 'view' => 'admin/v_dashboard', 'nil' => $nil, 'final_nil' => $final_nil, 'mutu' => $mutu, 'kinerja' => $kinerja, 'color' => $color, 'mutu_color' => $mutu_color);
 
             $this->load->view('admin/v_index',$values);
 		} else{

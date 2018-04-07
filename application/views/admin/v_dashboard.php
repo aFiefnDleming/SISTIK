@@ -1,105 +1,46 @@
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/dataTables.material.min.css">
 <main class="mdl-layout__content mdl-color--grey-100">
 	<div class="mdl-grid demo-content">
-		<div class="mdl-card mdl-shadow--2dp mdl-color--blue-grey-600 mdl-color-text--white mdl-cell mdl-cell--3-col">
+		<div class="mdl-card demo-card-square mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+              <div class="mdl-card__title mdl-card--expand">
+              <text class="mdl-card__title-text"><?= $data2 ?></text>
+              </div>
+              <div class="mdl-card__supporting-text">
+                Total Entri
+              </div>
+		</div>
+		<div class="mdl-cell mdl-cell--3-col mdl-shadow--2dp mdl-card">
 			<div class="mdl-grid demo-content">
 				<div style="text-align:center;">
-					<table>
-						<tr>
-							<td>
-								<br>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h5>TOTAL ENTRY</h5>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h1>
-									<?php 
-										if($data2 != 0){
-											echo $data2;
-										}
-									?>
-								</h1>
-							</td>
-						</tr>
-					</table>
+                    <div class="flex-wrapper">
+                          <div class="single-chart">
+                            <svg viewbox="0 0 36 36" class="circular-chart">
+                              <path class="circle-bg"
+                                d="M18 2.0845
+                                  a 15.9155 15.9155 0 0 1 0 31.831
+                                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                              />
+                              <path class="circle" style="stroke:<?= @$color ?>"
+                                stroke-dasharray="<?= $final_nil ?>, 100"
+                                d="M18 2.0845
+                                  a 15.9155 15.9155 0 0 1 0 31.831
+                                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                              />
+                              <text x="18" y="19" class="percentage"><?= $nil ?></text>
+                              <text x="18" y="23" class="percentage_label">Tingkat Kepuasan</text>
+                            </svg>
+                          </div>
+                    </div>
 				</div>
 			</div>
 		</div>
-		<div class="mdl-cell mdl-cell--3-col">
-			<div class="mdl-grid demo-content">
-				<div style="text-align:center;">
-					<table>
-                        <?php
-
-                        ?>
-						<tr>
-							<td>
-                                                        <div class="flex-wrapper">
-                              <div class="single-chart">
-                                <svg viewbox="0 0 36 36" class="circular-chart">
-                                  <path class="circle-bg"
-                                    d="M18 2.0845
-                                      a 15.9155 15.9155 0 0 1 0 31.831
-                                      a 15.9155 15.9155 0 0 1 0 -31.831"
-                                  />
-                                  <path class="circle" style="stroke:<?= @$color ?>"
-                                    stroke-dasharray="<?= $final_nil ?>, 100"
-                                    d="M18 2.0845
-                                      a 15.9155 15.9155 0 0 1 0 31.831
-                                      a 15.9155 15.9155 0 0 1 0 -31.831"
-                                  />
-                                  <text x="18" y="19" class="percentage"><?= $nil ?></text>
-                                  <text x="18" y="23" class="percentage_label">Tingkat Kepuasan</text>
-                                </svg>
-                              </div>
-                                </div>
-                            </td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
-        <div class="mdl-card mdl-shadow--2dp mdl-color--blue-grey-600 mdl-color-text--white mdl-cell mdl-cell--3-col">
-			<div class="mdl-grid demo-content">
-				<div style="text-align:center;">
-					<table>
-						<tr>
-							<td><br></td>
-						</tr>
-						<tr>
-							<td><h5>INDEKS NILAI</h5></td>
-						</tr>
-						<tr>
-							<td><h1><?= $mutu ?></h1></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
-        <div class="mdl-card mdl-shadow--2dp mdl-color--blue-grey-600 mdl-color-text--white mdl-cell mdl-cell--3-col">
-			<div class="mdl-grid demo-content">
-				<div style="text-align:center;">
-					<table>
-						<tr>
-							<td><br></td>
-						</tr>
-						<tr>
-							<td><h5>INDEKS NILAI</h5></td>
-						</tr>
-						<tr>
-							<td><h1><?php
-								if($data2 != 0){
-									echo $kinerja;}
-                            ?></h1></td>
-						</tr>
-					</table>
-				</div>
-			</div>
+        <div class="mdl-card demo-card-square mdl-shadow--2dp mdl-color-text--white mdl-cell mdl-cell--3-col" style="<?= @$mutu_color ?>">
+			  <div class="mdl-card__title mdl-card--expand no-bg">
+                <text class="mdl-card__title-text"><?= $mutu ?></text>
+              </div>
+              <div class="mdl-card__supporting-text mutu_text">
+                <?= $kinerja ?>
+              </div>
 		</div>
 		<div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
 			<table id="lihat" class="mdl-data-table mdl-js-data-table" width="100%">
