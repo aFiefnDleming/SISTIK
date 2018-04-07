@@ -74,6 +74,7 @@ class c_crud extends CI_Controller {
 	public function lihat_data(){
 		if($this->session->userdata('ses_username')){
 			$this->load->model('m_crud');
+			$this->load->model('M_UI');
 			$data	= $this->m_crud->select();
 			$data2	= $this->db->count_all('survey');
 			$nilai	= $this->m_crud->jumlahdata();
@@ -104,8 +105,9 @@ class c_crud extends CI_Controller {
 
             $final_nil = ($nil/4)*100;
 
+            $color = $this->M_UI->percentColor($final_nil);
 
-            $values = array('data' => $data, 'data2' => $data2, 'nilai' => $nilai, 'view' => 'admin/v_dashboard', 'nil' => $nil, 'final_nil' => $final_nil, 'mutu' => $mutu, 'kinerja' => $kinerja);
+            $values = array('data' => $data, 'data2' => $data2, 'nilai' => $nilai, 'view' => 'admin/v_dashboard', 'nil' => $nil, 'final_nil' => $final_nil, 'mutu' => $mutu, 'kinerja' => $kinerja, 'color' => $color);
 
             $this->load->view('admin/v_index',$values);
 		} else{
