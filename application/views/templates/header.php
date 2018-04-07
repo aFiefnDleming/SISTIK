@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/mdl-date-textfield.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/circle_pb.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/card.css">
 
 	<style>
 		#view-source {
