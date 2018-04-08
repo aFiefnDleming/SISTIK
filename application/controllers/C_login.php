@@ -13,6 +13,7 @@ class c_login extends CI_Controller {
 			$url = base_url('index.php/c_crud');
 			redirect($url);
 		}else{
+            $values['page_title'] = "Login";
             $values['view'] = "v_login";
             $this->load->view('index',$values);
 		}

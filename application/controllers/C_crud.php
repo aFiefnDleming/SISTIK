@@ -9,6 +9,7 @@ class c_crud extends CI_Controller {
 
 	public function index(){
 		if($this->session->userdata('ses_username')!== null){
+            $values['page_title'] = "Masukkan Data";
             $values["view"] = "v_input";
             $this->load->view("index",$values);
 		}else{
@@ -112,6 +113,7 @@ class c_crud extends CI_Controller {
             $mutu_color = "background:{$card_color} !important";
 
             $values = array('data' => $data, 'data2' => $data2, 'nilai' => $nilai, 'view' => 'admin/v_dashboard', 'nil' => $nil, 'final_nil' => $final_nil, 'mutu' => $mutu, 'kinerja' => $kinerja, 'color' => $color, 'mutu_color' => $mutu_color);
+            $values['page_title'] = "Dashboard";
 
             $this->load->view("index",$values);
 		} else{
@@ -129,6 +131,8 @@ class c_crud extends CI_Controller {
 		$nilai = $this->m_crud->jumlahdata_where($id);
 
         $values = array('data' => $data, 'nilai' => $nilai, 'view' => 'admin/v_detail');
+        $values['page_title'] = "Lihat data";
+
         $this->load->view("index",$values);
 	}
 
