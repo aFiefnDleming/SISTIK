@@ -1,16 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class c_login extends CI_Controller {
+class C_login extends CI_Controller {
 
 	public function __construct(){
 	  parent:: __construct();
-	  $this->load->model('m_login');
+	  $this->load->model('M_login');
   	}
 
 	public function index(){
 		if(null!==($this->session->userdata('ses_username'))){
-			$url = base_url('index.php/c_crud');
+			$url = base_url('index.php/C_crud');
 			redirect($url);
 		}else{
             $values['page_title'] = "Login";
@@ -22,8 +22,8 @@ class c_login extends CI_Controller {
 	public function auth(){
 		$username	= htmlspecialchars($this->input->post('username',TRUE),ENT_QUOTES);
 		$password	= htmlspecialchars($this->input->post('password',TRUE),ENT_QUOTES);
-		$cek 		= $this->m_login->auth($username, $password);
-		$level		= $this->m_login->level($username);
+		$cek 		= $this->M_login->auth($username, $password);
+		$level		= $this->M_login->level($username);
 
 		if($cek->num_rows() > 0){
 			$data=$cek->row_array();
@@ -31,7 +31,7 @@ class c_login extends CI_Controller {
 			$this->session->set_userdata('ses_username',$data['username']);
 			if($level == 1){
 				$this->session->set_userdata('akses','1');
-				redirect(base_url().'index.php/c_crud/lihat_data');
+				redirect(base_url().'index.php/C_crud/lihat_data');
 			}
         }else{
 			echo "<script>alert('Username atau Password Salah!');</script>";

@@ -11,10 +11,7 @@ defined('BASEPATH') OR exit("No direct access!");
 							<i class="material-icons">input</i>
 						</label>
 					</a>
-					<div class="mdl-textfield__expandable-holder">
-						<input class="mdl-textfield__input" type="text" id="search">
-						<label class="mdl-textfield__label" for="search">Enter your query...</label>
-					</div>
+					<div class="mdl-textfield__expandable-holder"></div>
 				</div>
 			</div>
 		</header>

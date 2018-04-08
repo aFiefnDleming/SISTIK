@@ -1,5 +1,5 @@
 <?php
-    class m_crud extends CI_Model {
+    class M_crud extends CI_Model {
         public function select(){
             $query = $this->db->get('survey');
             return $query->result_array(); }

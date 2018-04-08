@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class c_crud extends CI_Controller {
+class C_crud extends CI_Controller {
 
 	public function __construct(){
       parent:: __construct();
@@ -13,13 +13,13 @@ class c_crud extends CI_Controller {
             $values["view"] = "v_input";
             $this->load->view("index",$values);
 		}else{
-            redirect(base_url()."c_login");
+            redirect(base_url()."C_login");
 		}
 	}
 
 	public function input_user(){
 		if(null!==($this->session->userdata('ses_username'))){
-			$url = base_url('index.php/c_crud');
+			$url = base_url('index.php/C_crud');
 			redirect($url);
 		}else{
 			$this->load->view('templates/header_user');
@@ -65,17 +65,17 @@ class c_crud extends CI_Controller {
 		);
 
 		$this->db->insert('survey', $data);
-		$url = base_url('index.php/c_crud/input_user');
+		$url = base_url('index.php/C_crud/input_user');
 		redirect($url);
 	}
 
 	public function lihat_data(){
 		if($this->session->userdata('ses_username')){
-			$this->load->model('m_crud');
+			$this->load->model('M_crud');
 			$this->load->model('M_UI');
-			$data	        = $this->m_crud->select();
+			$data	        = $this->M_crud->select();
 			$data2	        = $this->db->count_all('survey');
-			$nilai	        = $this->m_crud->jumlahdata();
+			$nilai	        = $this->M_crud->jumlahdata();
             $nil            = 0;
             $mutu           = "";
             $kinerja        = "";
@@ -126,9 +126,9 @@ class c_crud extends CI_Controller {
 	public function detail_data(){
 		$id = $this->uri->segment(3);
 
-		$this->load->model('m_crud');
-		$data = $this->m_crud->select_where($id);
-		$nilai = $this->m_crud->jumlahdata_where($id);
+		$this->load->model('M_crud');
+		$data = $this->M_crud->select_where($id);
+		$nilai = $this->M_crud->jumlahdata_where($id);
 
         $values = array('data' => $data, 'nilai' => $nilai, 'view' => 'admin/v_detail');
         $values['page_title'] = "Lihat data";
@@ -139,11 +139,11 @@ class c_crud extends CI_Controller {
 	public function delete_data(){
 		$id = $this->uri->segment(3);
 
-		$this->load->model('m_crud');
-		$this->m_crud->delete_where($id);
-		$data = $this->m_crud->select();
+		$this->load->model('M_crud');
+		$this->M_crud->delete_where($id);
+		$data = $this->M_crud->select();
 
-		redirect(base_url().'index.php/c_crud/lihat_data');
+		redirect(base_url().'index.php/C_crud/lihat_data');
 	}
 
 	public function export_data(){
@@ -153,7 +153,7 @@ class c_crud extends CI_Controller {
 		header("Content-Disposition: attachment; filename='Data.csv'");
 		header("Pragma: no-cache");
 		header("Expires: 0");
-		echo $this->dbutil->csv_from_result($query);
+		echo $this->dbutil->csv_froM_result($query);
 	}
 
     public function bikin_acak() {
