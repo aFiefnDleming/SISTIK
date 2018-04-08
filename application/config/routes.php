@@ -53,3 +53,4 @@ $route['default_controller'] = 'c_index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route["members_area/(.*)"] = 'site/members_area/$1';
+$route['login'] = 'c_login';
