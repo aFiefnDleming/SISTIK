@@ -9,11 +9,8 @@ class c_crud extends CI_Controller {
 
 	public function index(){
 		if($this->session->userdata('ses_username')!== null){
-			$this->load->view('templates/header');
-			$this->load->view('templates/input_atas');
-			$this->load->view('v_input');
-			$this->load->view('templates/input_bawah');
-			$this->load->view('templates/footer');
+            $values["view"] = "v_input";
+            $this->load->view("index",$values);
 		}else{
             redirect(base_url()."c_login");
 		}
@@ -75,16 +72,18 @@ class c_crud extends CI_Controller {
 		if($this->session->userdata('ses_username')){
 			$this->load->model('m_crud');
 			$this->load->model('M_UI');
-			$data	= $this->m_crud->select();
-			$data2	= $this->db->count_all('survey');
-			$nilai	= $this->m_crud->jumlahdata();
-            $nil    = 0;
+			$data	        = $this->m_crud->select();
+			$data2	        = $this->db->count_all('survey');
+			$nilai	        = $this->m_crud->jumlahdata();
+            $nil            = 0;
+            $mutu           = "";
+            $kinerja        = "";
+            $card_color     = "";
 
-            if($data2 != 0){
+            if($data2!=0){
                 foreach($nilai as $nilais){
                     $nil=round($nilais['jumlahdata']/(9*$data2),2);
                 }
-
                 if($nil > 1.00 && $nil <= 2.5996){
                     $mutu = "D";
                     $kinerja = "Tidak Baik";
@@ -107,14 +106,14 @@ class c_crud extends CI_Controller {
                 }
             }
 
-            $final_nil = ($nil/4)*100;
+             $final_nil = ($nil/4)*100;
 
             $color = $this->M_UI->percentColor($final_nil);
             $mutu_color = "background:{$card_color} !important";
 
             $values = array('data' => $data, 'data2' => $data2, 'nilai' => $nilai, 'view' => 'admin/v_dashboard', 'nil' => $nil, 'final_nil' => $final_nil, 'mutu' => $mutu, 'kinerja' => $kinerja, 'color' => $color, 'mutu_color' => $mutu_color);
 
-            $this->load->view('admin/v_index',$values);
+            $this->load->view("index",$values);
 		} else{
 			$this->load->view('templates/header_user');
 			$this->load->view('v_input');
@@ -130,7 +129,7 @@ class c_crud extends CI_Controller {
 		$nilai = $this->m_crud->jumlahdata_where($id);
 
         $values = array('data' => $data, 'nilai' => $nilai, 'view' => 'admin/v_detail');
-        $this->load->view('admin/v_index',$values);
+        $this->load->view("index",$values);
 	}
 
 	public function delete_data(){
@@ -152,4 +151,42 @@ class c_crud extends CI_Controller {
 		header("Expires: 0");
 		echo $this->dbutil->csv_from_result($query);
 	}
+
+    public function bikin_acak() {
+        /*
+            INSERT INTO `survey` (`id`, `no_responden`, `umur`, `jenis_kelamin`, `pendidikan_terakhir`, `pekerjaan_utama`, `tanggal`, `jenis_pelayanan`, `sesuai`, `mudah`, `cepat`, `wajar`, `sesuai2`, `kompetensi`, `sopan`, `kualitas`, `pengaduan`) VALUES (NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '')
+        */
+
+        $jk=array("Laki-laki","Perempuan");
+        $pendidikan=array("SD Kebawah","SLTA Sederajat","SLTP Sederajat","S1","D1/D2/23","S2 Keatas");
+        $pekerjaan=array("PNS/TNI/POLRI","Wiraswasta/Usahawan","Pegawai Swasta","Pelajar/Mahasiswa","Lainnya");
+        $i=0;
+        $j=0;
+        $n=50;
+        $n_kriteria = 9;
+        $r="";
+
+        $r.="INSERT INTO `survey` (`id`, `no_responden`, `umur`, `jenis_kelamin`, `pendidikan_terakhir`, `pekerjaan_utama`, `tanggal`, `jenis_pelayanan`, `sesuai`, `mudah`, `cepat`, `wajar`, `sesuai2`, `kompetensi`, `sopan`, `kualitas`, `pengaduan`) VALUES";
+
+        for($i=0;$i<$n;$i++) {
+            $umur = rand(17,30);
+            $nor = rand(1,4000);
+            $r_jk = array_rand($jk);
+            $r_pn = array_rand($pendidikan);
+            $r_pk = array_rand($pekerjaan);
+            $tgl = rand(1,29);
+
+            $r.="(NULL, '{$nor}', '{$umur}', '{$jk[$r_jk]}', '{$pendidikan[$r_pn]}', '{$pekerjaan[$r_pk]}', '2018-03-{$tgl}', 'KTP',";
+
+            for($j=0;$j<$n_kriteria;$j++) {
+                $angka = rand(2,4);
+                $r.="'{$angka}'".($j<$n_kriteria-1?",":"");
+            }
+
+            $r.="),<br>";
+        }
+
+        echo $r;
+    }
+
 }
