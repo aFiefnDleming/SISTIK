@@ -19,7 +19,7 @@ class C_crud extends CI_Controller {
 
 	public function input_user(){
 		if(null!==($this->session->userdata('ses_username'))){
-			$url = base_url('index.php/C_crud');
+			$url = base_url('C_crud');
 			redirect($url);
 		}else{
 			$this->load->view('templates/header_user');
@@ -65,7 +65,7 @@ class C_crud extends CI_Controller {
 		);
 
 		$this->db->insert('survey', $data);
-		$url = base_url('index.php/C_crud/input_user');
+		$url = base_url('C_crud/input_user');
 		redirect($url);
 	}
 
@@ -143,7 +143,7 @@ class C_crud extends CI_Controller {
 		$this->M_crud->delete_where($id);
 		$data = $this->M_crud->select();
 
-		redirect(base_url().'index.php/C_crud/lihat_data');
+		redirect(base_url().'C_crud/lihat_data');
 	}
 
 	public function export_data(){

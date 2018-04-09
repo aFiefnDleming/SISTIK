@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit("No direct access!");
 				<span class="mdl-layout-title">SURVEY TINGKAT KEPUASAN KECAMATAN CINAMBO</span>
 				<div class="mdl-layout-spacer"></div>
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-					<a class="" href="<?php echo base_url('index.php/');?>login">
+					<a class="" href="<?php echo base_url();?>login">
 						<label class="mdl-button mdl-js-button mdl-button--icon">
 							<i class="material-icons">input</i>
 						</label>
