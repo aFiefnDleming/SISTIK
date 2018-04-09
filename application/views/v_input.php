@@ -97,10 +97,41 @@
 	</div>
 
 	<h4>Jenis Pelayanan</h4>
-	<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
+    <div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="ktp">
+			<input class="mdl-radio__button" type="radio" name="jenis" id="ktp" value="KTP" required>
+			<span class="mdl-radio__label">KTP</span>
+		</label>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="sktm">
+			<input class="mdl-radio__button" type="radio" name="jenis" id="sktm" value="SKTM" required>
+			<span class="mdl-radio__label">SKTM</span>
+		</label>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="domisili_perusahaan">
+			<input class="mdl-radio__button" type="radio" name="jenis" id="domisili_perusahaan" value="Domisili Perusahaan" required>
+			<span class="mdl-radio__label">Domisili Perusahaan</span>
+		</label>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pindang">
+			<input class="mdl-radio__button" type="radio" name="jenis" id="pindang" value="Pindah Datang" required>
+			<span class="mdl-radio__label">Pindah Datang</span>
+		</label>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="jamsostek">
+			<input class="mdl-radio__button" type="radio" name="jenis" id="jamsostek" value="Jamsostek" required>
+			<span class="mdl-radio__label">Jamsostek</span>
+		</label>
+    </div>
+
+	<!--<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
 		<input class="mdl-textfield__input" name="jenis" id="jenis" type="text" required>
 		<label class="mdl-textfield__label" for="jenis">Masukan Jenis Pelayanan</label>
-	</div>
+	</div>-->
 
 	<h4>Bagaimana pendapat Saudara tentang kesesuaian persyaratan dengan jenis pelayanannya di Kecamatan Cinambo?</h4>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
