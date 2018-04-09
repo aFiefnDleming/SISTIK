@@ -14,7 +14,6 @@
               <text class="mdl-card__title-text"><i class="material-icons" role="presentation">arrow_forward</i></text>
               </div>
       </div>
-		</div>
 		<div class="mdl-cell mdl-cell--3-col mdl-shadow--2dp mdl-card">
 			<div class="mdl-grid demo-content">
 				<div style="text-align:center;">
