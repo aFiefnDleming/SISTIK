@@ -16,14 +16,22 @@ defined('BASEPATH') OR exit("No direct access!");
 				</div>
 			</header>
 			<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-				<a class="mdl-navigation__link" href="<?php echo base_url();?>index.php/C_crud/lihat_data">
-					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">dashboard</i>Dashboard</a>
-				<a class="mdl-navigation__link" href="<?php echo base_url();?>index.php/C_crud/">
-					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">input</i>Input Data</a>
-				<a class="mdl-navigation__link" href="<?php echo base_url();?>index.php/C_crud/export_data">
-					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">cloud_download</i>Export Data</a>
+				<a class="mdl-navigation__link <?= current_url()==base_url("C_crud/lihat_data")?"yes":"" ?>" href="<?php echo base_url();?>C_crud/lihat_data">
+					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">dashboard</i>Dashboard
+                </a>
+
+				<a class="mdl-navigation__link <?= current_url()==base_url("C_crud")?"yes":"" ?>" href="<?php echo base_url();?>C_crud/">
+					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">input</i>Input Data
+                </a>
+
+				<a class="mdl-navigation__link <?= current_url()==base_url("C_crud/export_data")?"yes":"" ?>" href="<?php echo base_url();?>index.php/C_crud/export_data">
+					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">cloud_download</i>Export Data
+                </a>
+
 				<a class="mdl-navigation__link" href="<?php echo base_url();?>index.php/C_login/logout">
-					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>Sign Out (<?= $ses_uname ?>)</a>
+					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>Sign Out (<?= $ses_uname ?>)
+                </a>
+
 				<div class="mdl-layout-spacer"></div>
 				<p class="mdl-navigation__link">
 					2018 &copy; Sera5

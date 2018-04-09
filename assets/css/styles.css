@@ -213,3 +213,11 @@ _:-ms-input-placeholder, :root .demo-graph {
       -ms-flex-align: center;
           align-items: center;
 }
+
+/*
+    CUSTOM SCRIPT SECTION
+*/
+
+a.mdl-navigation__link.yes {
+    background-color: #263238
+}

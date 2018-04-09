@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/dataTables.material.min.css">
 <main class="mdl-layout__content mdl-color--grey-100">
 	<div class="mdl-grid demo-content">
-		<div class="mdl-card demo-card-square mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+		<div class="mdl-card demo-card-square mdl-shadow--2dp mdl-cell mdl-cell--6-col">
               <div class="mdl-card__title mdl-card--expand">
               <text class="mdl-card__title-text"><?= $data2 ?></text>
               </div>
@@ -9,11 +9,6 @@
                 Total Entri
               </div>
 		</div>
-        <div class="mdl-card demo-card-square mdl-shadow--2dp mdl-cell mdl-cell--2-col">
-              <div class="mdl-card__title mdl-card--expand">
-              <text class="mdl-card__title-text"><i class="material-icons" role="presentation">arrow_forward</i></text>
-              </div>
-      </div>
 		<div class="mdl-cell mdl-cell--3-col mdl-shadow--2dp mdl-card">
 			<div class="mdl-grid demo-content">
 				<div style="text-align:center;">
