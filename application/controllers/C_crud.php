@@ -111,8 +111,9 @@ class C_crud extends CI_Controller {
 
             $color = $this->M_UI->percentColor($final_nil);
             $mutu_color = "background:{$card_color} !important";
+            $mutu_color2 = $card_color;
 
-            $values = array('data' => $data, 'data2' => $data2, 'nilai' => $nilai, 'view' => 'admin/v_dashboard', 'nil' => $nil, 'final_nil' => $final_nil, 'mutu' => $mutu, 'kinerja' => $kinerja, 'color' => $color, 'mutu_color' => $mutu_color);
+            $values = array('data' => $data, 'data2' => $data2, 'nilai' => $nilai, 'view' => 'admin/v_dashboard', 'nil' => $nil, 'final_nil' => $final_nil, 'mutu' => $mutu, 'kinerja' => $kinerja, 'color' => $mutu_color2, 'mutu_color' => $mutu_color);
             $values['page_title'] = "Dashboard";
 
             $this->load->view("index",$values);
