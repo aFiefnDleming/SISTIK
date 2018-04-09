@@ -10,7 +10,7 @@ class C_login extends CI_Controller {
 
 	public function index(){
 		if(null!==($this->session->userdata('ses_username'))){
-			$url = base_url('index.php/C_crud');
+			$url = base_url('C_crud');
 			redirect($url);
 		}else{
             $values['page_title'] = "Login";
@@ -57,7 +57,7 @@ class C_login extends CI_Controller {
 
 	public function logout(){
 		$this->session->sess_destroy();
-        $url=base_url('index.php/');
+        $url=base_url('');
         redirect($url);
 	}
 }
