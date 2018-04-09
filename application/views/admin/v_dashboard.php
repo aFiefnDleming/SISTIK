@@ -85,10 +85,10 @@
 							<?php echo $data['jenis_kelamin']?>
 						</td>
 						<td class="mdl-data-table__cell--non-numeric">
-							<a class="mdl-color-text--blue-grey-500" href="<?php echo base_url().'index.php/c_crud/detail_data/'.$data['no_responden']?>">
+							<a class="mdl-color-text--blue-grey-500" href="<?php echo base_url().'index.php/C_crud/detail_data/'.$data['no_responden']?>">
 								<i class="material-icons">launch</i>
 							</a>
-							<a class="mdl-color-text--blue-grey-500" href="<?php echo base_url().'index.php/c_crud/delete_data/'.$data['no_responden']?>">
+							<a class="mdl-color-text--blue-grey-500" href="<?php echo base_url().'index.php/C_crud/delete_data/'.$data['no_responden']?>">
 								<i class="material-icons">delete</i>
 							</a>
 						</td>

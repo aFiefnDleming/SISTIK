@@ -1,7 +1,7 @@
 <h3>
 	Form Pengisian Survey</h3>
 <br>
-<form action="<?php echo base_url();?>index.php/c_crud/tambah_data" method="post">
+<form action="<?php echo base_url();?>index.php/C_crud/tambah_data" method="post">
 	<h4>Umur</h4>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
 		<input class="mdl-textfield__input" name="umur" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="umur" maxlength="3" required>
