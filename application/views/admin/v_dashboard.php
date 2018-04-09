@@ -9,6 +9,11 @@
                 Total Entri
               </div>
 		</div>
+        <div class="mdl-card demo-card-square mdl-shadow--2dp mdl-cell mdl-cell--2-col">
+              <div class="mdl-card__title mdl-card--expand">
+              <text class="mdl-card__title-text"><i class="material-icons" role="presentation">arrow_forward</i></text>
+              </div>
+		</div>
 		<div class="mdl-cell mdl-cell--3-col mdl-shadow--2dp mdl-card">
 			<div class="mdl-grid demo-content">
 				<div style="text-align:center;">
@@ -42,6 +47,7 @@
                 <?= $kinerja ?>
               </div>
 		</div>
+
 		<div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
 			<table id="lihat" class="mdl-data-table mdl-js-data-table" width="100%">
 				<thead>

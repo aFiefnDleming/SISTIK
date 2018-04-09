@@ -157,33 +157,89 @@ class c_crud extends CI_Controller {
 	}
 
     public function bikin_acak() {
-        /*
-            INSERT INTO `survey` (`id`, `no_responden`, `umur`, `jenis_kelamin`, `pendidikan_terakhir`, `pekerjaan_utama`, `tanggal`, `jenis_pelayanan`, `sesuai`, `mudah`, `cepat`, `wajar`, `sesuai2`, `kompetensi`, `sopan`, `kualitas`, `pengaduan`) VALUES (NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '')
-        */
-
         $jk=array("Laki-laki","Perempuan");
-        $pendidikan=array("SD Kebawah","SLTA Sederajat","SLTP Sederajat","S1","D1/D2/23","S2 Keatas");
+        $pendidikan=array("SD Kebawah","SLTA Sederajat","SLTP Sederajat","S1","Diploma","S2 Keatas");
         $pekerjaan=array("PNS/TNI/POLRI","Wiraswasta/Usahawan","Pegawai Swasta","Pelajar/Mahasiswa","Lainnya");
+        $pelayanan=array("KTP","KK","Pindah datang","Jamsostek");
         $i=0;
         $j=0;
-        $n=50;
+        $n=150;
         $n_kriteria = 9;
         $r="";
+        $merge = array(
+                    array($pendidikan[0],$pekerjaan[4]), // SD, Lainnya      -> 0
+                    array($pendidikan[1],$pekerjaan[4]), // sma, Lainnya     -> 1
+                    array($pendidikan[2],$pekerjaan[4]), // smp, Lainnya     -> 2
+                    array($pendidikan[3],$pekerjaan[4]), // S1, Lainnya      -> 3
+                    array($pendidikan[4],$pekerjaan[4]), // D2, Lainnya      -> 4
+                    array($pendidikan[5],$pekerjaan[4]), // S2, Lainnya      -> 5
+                    array($pendidikan[3],$pekerjaan[3]), // S1, mhs          -> 6
+                    array($pendidikan[3],$pekerjaan[0]), // S1, PNS          -> 7
+                    array($pendidikan[5],$pekerjaan[0]), // d3, PNS          -> 8
+                    array($pendidikan[5],$pekerjaan[2]), // s2, Pegawai      -> 9
+                    array($pendidikan[4],$pekerjaan[3]), // d3, mahasiswa    -> 10
+                    array($pendidikan[1],$pekerjaan[2]), // SMA, Pegawai     -> 11
+                    array($pendidikan[1],$pekerjaan[1]), // SMA, usahawan    -> 12
+                    array($pendidikan[2],$pekerjaan[1]),  // smp, usahawan     -> 13
+                    array($pendidikan[4],$pekerjaan[1]),  // S1, usahawan     -> 14
+                    array($pendidikan[5],$pekerjaan[1]),  // smp, usahawan     -> 15
+                    array($pendidikan[1],$pekerjaan[3]), // sma, siswa     -> 16
+                    array($pendidikan[3],$pekerjaan[2]) // s1, Pegawai      -> 17
+                );
 
-        $r.="INSERT INTO `survey` (`id`, `no_responden`, `umur`, `jenis_kelamin`, `pendidikan_terakhir`, `pekerjaan_utama`, `tanggal`, `jenis_pelayanan`, `sesuai`, `mudah`, `cepat`, `wajar`, `sesuai2`, `kompetensi`, `sopan`, `kualitas`, `pengaduan`) VALUES";
+        $range_umur = array(
+                    "17" => array($merge[1],$merge[2],$merge[6],$merge[16]),
+                    "18" => array($merge[1],$merge[6],$merge[10],$merge[16]),
+                    "19" => array($merge[1],$merge[6],$merge[10],$merge[16],$merge[11]),
+                    "20" => array($merge[1],$merge[6],$merge[10],$merge[16]),
+                    "21" => array($merge[1],$merge[6],$merge[10],$merge[16]),
+                    "22" => array($merge[1],$merge[6],$merge[10],$merge[3],$merge[4],$merge[14],$merge[11]),
+                    "23" => array($merge[1],$merge[2],$merge[6],$merge[3]),
+                    "24" => array($merge[1],$merge[2],$merge[6],$merge[3]),
+                    "25" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[9]),
+                    "26" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[9]),
+                    "27" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[14]),
+                    "28" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[14]),
+                    "29" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[14]),
+                    "30" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[14]),
+                    "31" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[14]),
+                    "32" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[14]),
+                    "33" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[17]),
+                    "34" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[17]),
+                    "35" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[17]),
+                    "36" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[14]),
+                    "37" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[14]),
+                    "38" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[4],$merge[8],$merge[17],$merge[14]),
+                    "39" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[8],$merge[17],$merge[14]),
+                    "40" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[8],$merge[17],$merge[15]),
+                    "41" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[8],$merge[17],$merge[15]),
+                    "42" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[8],$merge[17],$merge[15]),
+                    "43" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[8],$merge[17],$merge[15]),
+                    "44" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[8],$merge[17],$merge[15]),
+                    "45" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[8],$merge[17],$merge[14]),
+                    "46" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[8],$merge[17],$merge[14]),
+                    "47" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[8],$merge[17],$merge[14]),
+                    "48" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[8],$merge[17],$merge[14]),
+                    "49" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[8],$merge[17],$merge[14]),
+                    "50" => array($merge[1],$merge[2],$merge[12],$merge[3],$merge[7],$merge[8],$merge[17],$merge[14])
+                );
+
+        $r.="INSERT INTO `survey` ( `no_responden`, `umur`, `jenis_kelamin`, `pendidikan_terakhir`, `pekerjaan_utama`, `tanggal`, `jenis_pelayanan`, `sesuai`, `mudah`, `cepat`, `wajar`, `sesuai2`, `kompetensi`, `sopan`, `kualitas`, `pengaduan`) VALUES";
 
         for($i=0;$i<$n;$i++) {
-            $umur = rand(17,30);
+            $umur = rand(17,50);
             $nor = rand(1,4000);
             $r_jk = array_rand($jk);
-            $r_pn = array_rand($pendidikan);
-            $r_pk = array_rand($pekerjaan);
+            $r_pair = array_rand($pelayanan);
+
+            $gawean_pair = array_rand($range_umur[$umur]);
+
             $tgl = rand(1,29);
 
-            $r.="(NULL, '{$nor}', '{$umur}', '{$jk[$r_jk]}', '{$pendidikan[$r_pn]}', '{$pekerjaan[$r_pk]}', '2018-03-{$tgl}', 'KTP',";
+            $r.="(NULL, '{$umur}', '{$jk[$r_jk]}', '{$range_umur[$umur][$gawean_pair][0]}', '{$range_umur[$umur][$gawean_pair][1]}', '2018-03-{$tgl}', '{$pelayanan[$r_pair]}',";
 
             for($j=0;$j<$n_kriteria;$j++) {
-                $angka = rand(2,4);
+                $angka = $i%10==0?4:($j%5==0?rand(2,4):($j%7==0?rand(1,4):rand(3,4)));
                 $r.="'{$angka}'".($j<$n_kriteria-1?",":"");
             }
 
