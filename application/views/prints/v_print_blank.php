@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <head>
             <meta charset="utf-8" />
             <link rel="stylesheet" href="<?=base_url()?>assets/css/paper.css">
+            <link rel="stylesheet" href="<?=base_url()?>assets/css/print.css">
       </head>
         <body class="A4">
             <?= $isi_page ?>
