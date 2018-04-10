@@ -19,12 +19,11 @@ class C_crud extends CI_Controller {
 
 	public function input_user(){
 		if(null!==($this->session->userdata('ses_username'))){
-			$url = base_url('C_crud');
+			$url = base_url();
 			redirect($url);
 		}else{
-			$this->load->view('templates/header_user');
-			$this->load->view('v_input');
-			$this->load->view('templates/footer_user');
+			 $values['view'] = "v_input";
+            $this->load->view('index',$values);
 		}
 	}
 
@@ -118,9 +117,7 @@ class C_crud extends CI_Controller {
 
             $this->load->view("index",$values);
 		} else{
-			$this->load->view('templates/header_user');
-			$this->load->view('v_input');
-			$this->load->view('templates/footer_user');
+			$url = base_url('input_user');
 		}
 	}
 

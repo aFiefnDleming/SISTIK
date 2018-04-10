@@ -9,7 +9,7 @@ class C_index extends CI_Controller {
 
     public function index(){
         if($this->session->userdata('ses_username')!== null){
-            redirect('index.php/C_crud');
+            redirect('C_crud');
         } else {
             $values['view'] = "v_input";
             $this->load->view('index',$values);
