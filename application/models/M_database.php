@@ -15,7 +15,7 @@ class M_database extends CI_Model {
 		$this->db->insert($table,$data);
 	}
 
-	function read($select, $table, $where="", $order="", $join="", $run=false) {
+	function read($select, $table, $where="", $order="", $join="", $run=false, $limit="") {
 
         /*
             parameter $select harus dalam array jika lebih dari 1 kolom.
@@ -56,12 +56,13 @@ class M_database extends CI_Model {
 
 		if (!empty($order)) $this->db->order_by($order,'desc');
 
-
         if(!empty($join)) {
             foreach($join as $table=>$key) {
                 $this->db->join($table,"{$key[2]} = {$key[1]}",$key[0]);
             }
         }
+
+        if(!empty($limit)) $this->db->limit($limit[0],$limit[1]);
 
         if($run==true) {
             $query = $this->db->get($table);
@@ -74,6 +75,14 @@ class M_database extends CI_Model {
             return $this->db->get_compiled_select($table);
         }
 	}
+
+    function count_table($table) {
+        return $this->db->count_all_results($table);
+    }
+
+    function _reset() {
+        $this->db->reset_query();
+    }
 
 	function update($table, $where, $data) {
 		$this->db->where($where);

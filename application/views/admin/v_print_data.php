@@ -8,9 +8,11 @@
             <h3>
                 Cetak Hasil Survey</h3>
             <br>
+                    <div class="mdl-cell mdl-cell--12-col">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+              Ekspor sebagai CSV
+            </button>
         </div>
-        <div class="mdl-cell mdl-cell--12-col">
-
         </div>
 	</div>
 </main>
