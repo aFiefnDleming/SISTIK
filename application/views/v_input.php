@@ -1,12 +1,21 @@
 <h3>
 	Form Pengisian Survey</h3>
 <br>
-<form action="<?php echo base_url();?>C_crud/tambah_data" method="post">
+
+<?php if(!empty($this->session->flashdata('success'))) { ?>
+<div class="alert alert-success mdl-shadow--2dp">
+    <?= $this->session->flashdata('success') ?>
+</div>
+<?php } ?>
+
+<form action="<?php echo base_url();?>tambah_data" method="post">
 	<h4>Umur</h4>
-	<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-		<input class="mdl-textfield__input" name="umur" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="umur" maxlength="3" required>
-		<label class="mdl-textfield__label" for="umur">Masukan Umur</label>
-	</div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+        <input class="mdl-textfield__input" type="number" id="umur" name="umur" min="17">
+        <label class="mdl-textfield__label" for="umur">Umur</label>
+        <span class="mdl-textfield__error">Angka tidak valid!</span>
+    </div>
+
 	<h4>Jenis Kelamin</h4>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="laki">
@@ -91,7 +100,7 @@
 		</label>
 	</div>
 	
-	<h4>Tanggal</h4>
+	<h4>Tanggal Pengisian</h4>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
 		<input class="mdl-date-textfield__input" type="date" name="tanggal" id="tanggal" required>
 	</div>
@@ -127,12 +136,6 @@
 			<span class="mdl-radio__label">Jamsostek</span>
 		</label>
     </div>
-
-	<!--<div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-		<input class="mdl-textfield__input" name="jenis" id="jenis" type="text" required>
-		<label class="mdl-textfield__label" for="jenis">Masukan Jenis Pelayanan</label>
-	</div>-->
-
 	<h4>Bagaimana pendapat Saudara tentang kesesuaian persyaratan dengan jenis pelayanannya di Kecamatan Cinambo?</h4>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kesesuaian_tidak_sesuai">
@@ -189,25 +192,25 @@
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kecepatan_tidak_cepat">
 			<input class="mdl-radio__button" type="radio" name="kecepatan" id="kecepatan_tidak_cepat" value="1" required>
-			<span class="mdl_radio__label"="kecepatan_tidak_cepat">Tidak Cepat</span>
+			<span class="mdl_radio__label">Tidak Cepat</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kecepatan_kurang_cepat">
 			<input class="mdl-radio__button" type="radio" name="kecepatan" id="kecepatan_kurang_cepat" value="2" required>
-			<span class="mdl_radio__label"="kecepatan_kurang_cepat">Kurang Cepat</span>
+			<span class="mdl_radio__label">Kurang Cepat</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kecepatan_cepat">
 			<input class="mdl-radio__button" type="radio" name="kecepatan" id="kecepatan_cepat" value="3" required>
-			<span class="mdl_radio__label"="kecepatan_cepat">Cepat</span>
+			<span class="mdl_radio__label">Cepat</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kecepatan_sangat_cepat">
 			<input class="mdl-radio__button" type="radio" name="kecepatan" id="kecepatan_sangat_cepat" value="4" required>
-			<span class="mdl_radio__label"="kecepatan_sangat_cepat">Sangat Cepat</span>
+			<span class="mdl_radio__label">Sangat Cepat</span>
 		</label>
 	</div>
 
@@ -215,25 +218,25 @@
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kewajaran_sangat_mahal">
 			<input class="mdl-radio__button" type="radio" name="kewajaran" id="kewajaran_sangat_mahal" value="1" required>
-			<span class="mdl_radio__label"="kewajaran_sangat_mahal">Sangat Mahal</span>
+			<span class="mdl_radio__label">Sangat Mahal</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kewajaran_cukup_mahal">
 			<input class="mdl-radio__button" type="radio" name="kewajaran" id="kewajaran_cukup_mahal" value="2" required>
-			<span class="mdl_radio__label"="kewajaran_cukup_mahal">Cukup Mahal</span>
+			<span class="mdl_radio__label">Cukup Mahal</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kewajaran_murah">
 			<input class="mdl-radio__button" type="radio" name="kewajaran" id="kewajaran_murah" value="3" required>
-			<span class="mdl_radio__label"="kewajaran_murah">Murah</span>
+			<span class="mdl_radio__label">Murah</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kewajaran_gratis">
 			<input class="mdl-radio__button" type="radio" name="kewajaran" id="kewajaran_gratis" value="4" required>
-			<span class="mdl_radio__label"="kewajaran_gratis">Gratis</span>
+			<span class="mdl_radio__label">Gratis</span>
 		</label>
 	</div>
 
@@ -242,25 +245,25 @@
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kesesuaian2_tidak_sesuai">
 			<input class="mdl-radio__button" type="radio" name="kesesuaian2" id="kesesuaian2_tidak_sesuai" value="1" required>
-			<span class="mdl_radio__label"="kesesuaian2_tidak_sesuai">Tidak Sesuai</span>
+			<span class="mdl_radio__label">Tidak Sesuai</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kesesuaian2_kurang_sesuai">
 			<input class="mdl-radio__button" type="radio" name="kesesuaian2" id="kesesuaian2_kurang_sesuai" value="2" required>
-			<span class="mdl_radio__label"="kesesuaian2_kurang_sesuai">Kurang Sesuai</span>
+			<span class="mdl_radio__label">Kurang Sesuai</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kesesuaian2_sesuai">
 			<input class="mdl-radio__button" type="radio" name="kesesuaian2" id="kesesuaian2_sesuai" value="3" required>
-			<span class="mdl_radio__label"="kesesuaian2_sesuai">Sesuai</span>
+			<span class="mdl_radio__label">Sesuai</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kesesuaian2_sangat_kesesuaian">
 			<input class="mdl-radio__button" type="radio" name="kesesuaian2" id="kesesuaian2_sangat_kesesuaian" value="4" required>
-			<span class="mdl_radio__label"="kesesuaian2_sangat_kesesuaian">Sangat Sesuai</span>
+			<span class="mdl_radio__label">Sangat Sesuai</span>
 		</label>
 	</div>
 
@@ -268,25 +271,25 @@
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kompetensi_tidak_kompeten">
 			<input class="mdl-radio__button" type="radio" name="kompeten" id="kompetensi_tidak_kompeten" value="1" required>
-			<span class="mdl_radio__label"="kompetensi_tidak_kompeten">Tidak Kompeten</span>
+			<span class="mdl_radio__label">Tidak Kompeten</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kompetensi_kurang_kompeten">
 			<input class="mdl-radio__button" type="radio" name="kompeten" id="kompetensi_kurang_kompeten" value="2" required>
-			<span class="mdl_radio__label"="kompetensi_kurang_kompeten">Kurang Kompeten</span>
+			<span class="mdl_radio__label">Kurang Kompeten</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kompetensi_kompeten">
 			<input class="mdl-radio__button" type="radio" name="kompeten" id="kompetensi_kompeten" value="3" required>
-			<span class="mdl_radio__label"="kompetensi_kompeten">Kompeten</span>
+			<span class="mdl_radio__label">Kompeten</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kompetensi_sangat_kompeten">
 			<input class="mdl-radio__button" type="radio" name="kompeten" id="kompetensi_sangat_kompeten" value="4" required>
-			<span class="mdl_radio__label"="kompetensi_sangat_kompeten">Sangat Kompeten</span>
+			<span class="mdl_radio__label">Sangat Kompeten</span>
 		</label>
 	</div>
 
@@ -295,25 +298,25 @@
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kesopanan_tidak_sopan">
 			<input class="mdl-radio__button" type="radio" name="kesopanan" id="kesopanan_tidak_sopan" value="1" required>
-			<span class="mdl_radio__label"="kesopanan_tidak_sopan">Tidak Sopan dan Ramah</span>
+			<span class="mdl_radio__label">Tidak Sopan dan Ramah</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kesopanan_kurang_sopan">
 			<input class="mdl-radio__button" type="radio" name="kesopanan" id="kesopanan_kurang_sopan" value="2" required>
-			<span class="mdl_radio__label"="kesopanan_kurang_sopan">Kurang Sopan dan Ramah</span>
+			<span class="mdl_radio__label">Kurang Sopan dan Ramah</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kesopanan_sopan">
 			<input class="mdl-radio__button" type="radio" name="kesopanan" id="kesopanan_sopan" value="3" required>
-			<span class="mdl_radio__label"="kesopanan_sopan">Sopan dan Ramah</span>
+			<span class="mdl_radio__label">Sopan dan Ramah</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="kesopanan_sangat_sopan">
 			<input class="mdl-radio__button" type="radio" name="kesopanan" id="kesopanan_sangat_sopan" value="4" required>
-			<span class="mdl_radio__label"="kesopanan_sangat_sopan">Sangat Sopan dan Ramah</span>
+			<span class="mdl_radio__label">Sangat Sopan dan Ramah</span>
 		</label>
 	</div>
 
@@ -347,25 +350,25 @@
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="penanganan_tidak_ada">
 			<input class="mdl-radio__button" type="radio" name="pengaduan" id="penanganan_tidak_ada" value="1" required>
-			<span class="mdl_radio__label"="penanganan_tidak_ada">Tidak Ada</span>
+			<span class="mdl_radio__label">Tidak Ada</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="penanganan_tidak_berfungsi">
 			<input class="mdl-radio__button" type="radio" name="pengaduan" id="penanganan_tidak_berfungsi" value="2" required>
-			<span class="mdl_radio__label"="penanganan_tidak_berfungsi">Ada, tetapi tidak berfungsi</span>
+			<span class="mdl_radio__label">Ada, tetapi tidak berfungsi</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="penanganan_kurang_maksimal">
 			<input class="mdl-radio__button" type="radio" name="pengaduan" id="penanganan_kurang_maksimal" value="3" required>
-			<span class="mdl_radio__label"="penanganan_kurang_maksimal">Berfungsi kurang maksimal</span>
+			<span class="mdl_radio__label">Berfungsi kurang maksimal</span>
 		</label>
 	</div>
 	<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
 		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="penanganan_baik">
 			<input class="mdl-radio__button" type="radio" name="pengaduan" id="penanganan_baik" value="4" required>
-			<span class="mdl_radio__label"="penanganan_baik">Dikelola dengan baik</span>
+			<span class="mdl_radio__label">Dikelola dengan baik</span>
 		</label>
 	</div>
 

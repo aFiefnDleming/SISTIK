@@ -31,7 +31,7 @@ class C_login extends CI_Controller {
 			$this->session->set_userdata('ses_username',$data['username']);
 			if($level == 1){
 				$this->session->set_userdata('akses','1');
-				redirect(base_url().'lihat_data');
+				redirect(base_url());
 			}
         }else{
 			$this->session->set_flashdata('error', 'Username atau password salah!');

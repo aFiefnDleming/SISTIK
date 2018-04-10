@@ -9,5 +9,8 @@
                 Cetak Hasil Survey</h3>
             <br>
         </div>
+        <div class="mdl-cell mdl-cell--12-col">
+
+        </div>
 	</div>
 </main>

@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit("No direct access!");
 				</div>
 			</header>
 			<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-				<a class="mdl-navigation__link <?= current_url()==base_url("lihat_data")?"yes":"" ?>" href="<?php echo base_url();?>lihat_data">
+				<a class="mdl-navigation__link <?= current_url()==base_url("")?"yes":"" ?>" href="<?php echo base_url();?>">
 					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">dashboard</i>Dashboard
                 </a>
 
