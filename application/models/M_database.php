@@ -42,7 +42,6 @@ class M_database extends CI_Model {
         $this->db->select($select);
         $i=0;
 
-        echo "<pre>";
 		if (!empty($where)) {
             //jika array berbetuk where1
             foreach($where as $params) {

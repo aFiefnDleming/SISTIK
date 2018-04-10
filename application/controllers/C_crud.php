@@ -125,12 +125,95 @@ class C_crud extends CI_Controller {
 	}
 
 	public function detail_data($id){
-
 		$this->load->model('M_crud');
-		$data = $this->M_crud->select_where($id);
-		$nilai = $this->M_crud->jumlahdata_where($id);
+		$this->load->model('M_database');
 
-        $values = array('data' => $data, 'nilai' => $nilai, 'view' => 'admin/v_data_detail');
+        $pelayanan = "";
+
+        $where = array(array("no_responden","=",$id));
+
+        $result = $this->M_database->read("*","survey",$where,"","",true)[0];
+
+        $sums = ($result->sesuai)+($result->mudah)+($result->cepat)+($result->wajar)+($result->sesuai2)+($result->kompetensi)+($result->sopan)+($result->kualitas)+($result->pengaduan);
+
+        $kriteria = array(
+              array("Kesesuaian persyaratan dengan jenis pelayanannya di Kecamatan Cinambo",$result->sesuai),
+              array("Kemudahan prosedur pelayanan",$result->mudah),
+              array("Kecepatan waktu dalam memberikan pelayanan",$result->cepat),
+              array("Kewajaran biaya/tarif dalam pelayanan di Kecamatan Cinambo",$result->wajar),
+              array("Kesesuaian produk pelayanan antara yang tercantum dalam standar pelayanan dengan hasil yang diberikan",$result->sesuai2),
+              array("Kompetensi/kemampuan petugas dalam pelayanan",$result->kompetensi),
+              array("Perilaku petugas dalam pelayanan terkait kesopanan dan keramahan pelayanan di Kecamatan Cinambo",$result->sopan),
+              array("Kualitas sarana dan prasarana di Kecamatan Cinambo",$result->kualitas),
+              array("Penanganan pengaduan layanan",$result->pengaduan)
+            );
+
+        $nil = round($sums/count($kriteria),2);
+
+        if($nil > 1.00 && $nil <= 2.5996){
+            $mutu = "D";
+            $kinerja = "Tidak Baik";
+            $card_color = "#E65100";
+        }
+        else if($nil > 2.6 && $nil <= 3.064){
+            $mutu = "C";
+            $kinerja = "Kurang Baik";
+            $card_color = "#FF9800";
+        }
+        else if($nil > 3.0644 && $nil <= 3.532){
+            $mutu = "B";
+            $kinerja = "Baik";
+            $card_color = "#4CAF50";
+        }
+        else if($nil > 3.5324 && $nil <= 4.00){
+            $mutu = "A";
+            $kinerja = "Sangat Baik";
+            $card_color = "#2E7D32";
+        }
+
+        foreach($kriteria as $label) {
+
+            switch($label[1]) {
+                case 1: $color = "red"; $deskripsi = "Tidak sesuai"; break;
+                case 2: $color = "orange"; $deskripsi = "Kurang sesuai"; break;
+                case 3: $color = "lime"; $deskripsi = "Sesuai"; break;
+                case 4: $color = "teal"; $deskripsi = "Sangat sesuai"; break;
+            }
+
+            $pelayanan .= '	<li class="mdl-list__item">
+						<table>
+							<tr>
+								<td>
+									<h4>'.$label[0].'</h4>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="mdl-chip mdl-chip--contact">
+                                        <span class="mdl-chip__contact mdl-color--'.$color.' mdl-color-text--white">'.$label[1].'</span>
+                                        <span class="mdl-chip__text">'.$deskripsi.'</span>
+                                    </span>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<br>
+					<hr>';
+        }
+
+        $mutu_color = "background:{$card_color} !important";
+
+        $values=array("umur"                    =>$result->umur,
+                      "jenis_kelamin"           =>$result->jenis_kelamin,
+                      "pendidikan_terakhir"     =>$result->pendidikan_terakhir,
+                      "pekerjaan_utama"         =>$result->pekerjaan_utama,
+                      "mean"                    =>$nil,
+                      "mutu"                    =>$mutu,
+                      'kinerja'                 =>$kinerja,
+                      'mutu_color'              =>$mutu_color,
+                      "pelayanan"               =>$pelayanan,
+                      'view'                    =>'admin/v_data_detail');
+
         $values['page_title'] = "Lihat data";
 
         $this->load->view("index",$values);
