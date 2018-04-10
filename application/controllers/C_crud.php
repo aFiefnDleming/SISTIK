@@ -225,8 +225,13 @@ class C_crud extends CI_Controller {
 		$this->M_crud->delete_where($id);
 		$data = $this->M_crud->select();
 
-		redirect(base_url().'C_crud/lihat_data');
+		redirect(base_url().'lihat_data');
 	}
+
+    public function print_data() {
+        $values['view'] = 'admin/v_print_data';
+        $this->load->view("index",$values);
+    }
 
 	public function export_data(){
 		$this->load->dbutil();

@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit("No direct access!");
 					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">input</i>Input Data
                 </a>
 
-                <a class="mdl-navigation__link <?= current_url()==base_url("print_data")?"yes":"" ?>" href="<?php echo base_url();?>C_crud/print_data">
+                <a class="mdl-navigation__link <?= current_url()==base_url("print_data")?"yes":"" ?>" href="<?php echo base_url();?>print_data">
 					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">print</i>Cetak Data
                 </a>
 

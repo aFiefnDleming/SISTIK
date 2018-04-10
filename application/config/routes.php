@@ -57,6 +57,7 @@ $route["members_area/(.*)"] = 'site/members_area/$1';
 $route['login'] = 'C_login';
 $route['lihat_data'] = 'C_crud/lihat_data';
 $route['input_data'] = 'C_crud';
+$route['print_data'] = 'C_crud/print_data';
 $route['detail/(:num)'] = 'C_crud/detail_data/$1';
 $route['delete/(:num)'] = 'C_crud/delete_data/$1';
 $route['logout'] = 'C_login/logout';
