@@ -31,11 +31,11 @@ class C_login extends CI_Controller {
 			$this->session->set_userdata('ses_username',$data['username']);
 			if($level == 1){
 				$this->session->set_userdata('akses','1');
-				redirect(base_url().'C_crud/lihat_data');
+				redirect(base_url().'lihat_data');
 			}
         }else{
-			echo "<script>alert('Username atau Password Salah!');</script>";
-			$this->load->view('index');
+			$this->session->set_flashdata('error', 'Username atau password salah!');
+            redirect(base_url("login"));
 		}
 	}
 

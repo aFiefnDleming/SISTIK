@@ -124,21 +124,19 @@ class C_crud extends CI_Controller {
 		}
 	}
 
-	public function detail_data(){
-		$id = $this->uri->segment(3);
+	public function detail_data($id){
 
 		$this->load->model('M_crud');
 		$data = $this->M_crud->select_where($id);
 		$nilai = $this->M_crud->jumlahdata_where($id);
 
-        $values = array('data' => $data, 'nilai' => $nilai, 'view' => 'admin/v_detail');
+        $values = array('data' => $data, 'nilai' => $nilai, 'view' => 'admin/v_data_detail');
         $values['page_title'] = "Lihat data";
 
         $this->load->view("index",$values);
 	}
 
-	public function delete_data(){
-		$id = $this->uri->segment(3);
+	public function delete_data($id){
 
 		$this->load->model('M_crud');
 		$this->M_crud->delete_where($id);
@@ -248,6 +246,22 @@ class C_crud extends CI_Controller {
         }
 
         echo $r;
+    }
+
+    public function test() {
+        $this->load->model("M_database");
+
+        $where = array(array("kolom1","=","cari_1"));
+
+        $where2 =array(array("kolom1","=","cari_1"),
+                      array("and",array("jualan","<","cari_2")),
+                      array("or",array("harga",">","cari_3"))
+                        );
+
+        $join = array("table1"=>array("left","key1_1","key1_2"),
+                      "table2"=>array("left","key2_1","key2_2"));
+
+        echo $this->M_database->read("*","survey",$where2,"",$join);
     }
 
 }

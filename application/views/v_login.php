@@ -1,6 +1,12 @@
 <h3>Login SISTIK</h3>
-<br>
-<form action="<?php echo base_url();?>index.php/C_login/auth" method="post">
+
+<?php if(!empty($this->session->flashdata('error'))) { ?>
+<div class="alert alert-danger mdl-shadow--2dp">
+    <?= $this->session->flashdata('error') ?>
+</div>
+<?php } ?>
+
+<form action="<?php echo base_url();?>C_login/auth" method="post">
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--12-col">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
