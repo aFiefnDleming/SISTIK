@@ -69,6 +69,9 @@ class C_print extends CI_Controller {
         $i=0;
         $j=0;
         $f=0;
+
+        $props =array(0,0,0,0,0,0,0,0,0);
+
         $isi_page="";
 
         $page_limit=37;
@@ -107,15 +110,25 @@ class C_print extends CI_Controller {
                 $f++;
                 $isi_page.="<tr>";
                 $isi_page.="<td>{$key->id}</td>";
-                $isi_page.="<td>{$key->sesuai}</td>";
-                $isi_page.="<td>{$key->mudah}</td>";
-                $isi_page.="<td>{$key->cepat}</td>";
-                $isi_page.="<td>{$key->wajar}</td>";
-                $isi_page.="<td>{$key->sesuai2}</td>";
-                $isi_page.="<td>{$key->kompetensi}</td>";
-                $isi_page.="<td>{$key->sopan}</td>";
-                $isi_page.="<td>{$key->kualitas}</td>";
-                $isi_page.="<td>{$key->pengaduan}</td>";
+                $isi_page.="<td>{$key->sesuai}</td>";           $props[0] += $key->sesuai;
+                $isi_page.="<td>{$key->mudah}</td>";            $props[1] += $key->mudah;
+                $isi_page.="<td>{$key->cepat}</td>";            $props[2] += $key->cepat;
+                $isi_page.="<td>{$key->wajar}</td>";            $props[3] += $key->wajar;
+                $isi_page.="<td>{$key->sesuai2}</td>";          $props[4] += $key->sesuai2;
+                $isi_page.="<td>{$key->kompetensi}</td>";       $props[5] += $key->kompetensi;
+                $isi_page.="<td>{$key->sopan}</td>";            $props[6] += $key->sopan;
+                $isi_page.="<td>{$key->kualitas}</td>";         $props[7] += $key->kualitas;
+                $isi_page.="<td>{$key->pengaduan}</td>";        $props[8] += $key->pengaduan;
+                $isi_page.="</tr>";
+            }
+
+            if($f==$this->M_database->count_table("survey")) {
+                $isi_page.="<tr class='bold_this'>";
+                $isi_page.="<td>Jumlah nilai per kolom</td>";
+                foreach($props as $nilai) $isi_page.="<td>{$nilai}</td>";
+                $isi_page.="</tr>";
+                $isi_page.="<tr class='bold_this'>";
+                $isi_page.="<td>Jumlah nilai per kolom</td>";
                 $isi_page.="</tr>";
             }
 
