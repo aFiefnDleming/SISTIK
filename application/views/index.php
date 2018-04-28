@@ -32,4 +32,11 @@ if(!empty($ses_uname)) {
     }
 }
 
+switch($view) {
+    case "admin/v_dashboard":
+        $this->load->view('templates/footer/v_footer_admin_dashboard.php',@$values);
+        break;
+
+}
+
 $this->load->view('templates/footer/v_footer_scripts',@$values);

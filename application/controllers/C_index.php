@@ -44,7 +44,7 @@ class C_index extends CI_Controller {
                 }
             }
 
-             $final_nil = ($nil/4)*100;
+             $final_nil = (($nil/4)*100)/100;
 
             $color = $this->M_UI->percentColor($final_nil);
             $mutu_color = "background:{$card_color} !important";
@@ -52,6 +52,8 @@ class C_index extends CI_Controller {
 
             $values = array('data' => $data, 'data2' => $data2, 'nilai' => $nilai, 'view' => 'admin/v_dashboard', 'nil' => $nil, 'final_nil' => $final_nil, 'mutu' => $mutu, 'kinerja' => $kinerja, 'color' => $mutu_color2, 'mutu_color' => $mutu_color);
             $values['page_title'] = "Dashboard";
+
+        $values['isi_kartu'] = $card_color;
 
             $this->load->view("index",$values);
 		} else{

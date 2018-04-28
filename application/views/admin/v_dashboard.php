@@ -11,27 +11,7 @@
 		</div>
 		<div class="mdl-cell mdl-cell--3-col mdl-shadow--2dp mdl-card">
 			<div class="mdl-grid demo-content">
-				<div style="text-align:center;">
-                    <div class="flex-wrapper">
-                          <div class="single-chart">
-                            <svg viewbox="0 0 36 36" class="circular-chart">
-                              <path class="circle-bg"
-                                d="M18 2.0845
-                                  a 15.9155 15.9155 0 0 1 0 31.831
-                                  a 15.9155 15.9155 0 0 1 0 -31.831"
-                              />
-                              <path class="circle" style="stroke:<?= @$color ?>"
-                                stroke-dasharray="<?= $final_nil ?>, 100"
-                                d="M18 2.0845
-                                  a 15.9155 15.9155 0 0 1 0 31.831
-                                  a 15.9155 15.9155 0 0 1 0 -31.831"
-                              />
-                              <text x="18" y="19" class="percentage"><?= $nil ?></text>
-                              <text x="18" y="23" class="percentage_label">Tingkat Kepuasan</text>
-                            </svg>
-                          </div>
-                    </div>
-				</div>
+				<div id="circle"></div>
 			</div>
 		</div>
         <div class="mdl-card demo-card-square mdl-shadow--2dp mdl-color-text--white mdl-cell mdl-cell--3-col" style="<?= @$mutu_color ?>">
